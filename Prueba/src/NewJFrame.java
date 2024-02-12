@@ -1,5 +1,6 @@
 
 import javax.swing.table.DefaultTableModel;
+import java.util.StringTokenizer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,14 +12,15 @@ import javax.swing.table.DefaultTableModel;
  * @author kenph
  */
 public class NewJFrame extends javax.swing.JFrame {
-    int [] nums  = {7,2,4,8,3,9,1,5,10,6};
+    //int [] nums  = {7,2,4,8,3,9,1,5,10,6};
     /**
      * Creates new form NewJFrame
      */
+   private int numsArray[];
     public NewJFrame() {
         initComponents();
         
-        DefaultTableModel model = new DefaultTableModel();
+        /*DefaultTableModel model = new DefaultTableModel();
         
         model.addColumn("1");
         model.addColumn("2");
@@ -34,8 +36,13 @@ public class NewJFrame extends javax.swing.JFrame {
         model.addRow(new Object[]{nums});
         
         myTable.setModel(model);
+        */
     }
   
+    //int [] numArreglo = new int [10];
+    //String arregloNumeros; 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,12 +56,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         numeroBuscar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        myTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        numArreglo0 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ingrese Dato a buscar:");
+        jLabel1.setText("Ingrese 10 numeros");
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,18 +70,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        myTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(myTable);
+        jLabel2.setText("Numero a buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,37 +79,40 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(numArreglo0, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jButton1))
                             .addComponent(numeroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jButton1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
-                .addContainerGap())
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)
-                        .addGap(38, 38, 38)
-                        .addComponent(numeroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(numArreglo0, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(numeroBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,18 +131,20 @@ public class NewJFrame extends javax.swing.JFrame {
         nums[8]=14;
         nums[9]=20;
         */
-        int [] nums  = {7,2,4,8,3,9,1,5,10,6};
+        
+        int numsArray[] = valArray(numArreglo0.getText());
+        //int [] nums  = {7,2,4,8,3,9,1,5,10,6};
         int pos = -1;
         
         int cantIntercambios = 0; //Función qué cuenta la cantidad de intercambios
         //bucle anidado donde compara los numeros
         for (boolean ordenado=false;!ordenado;){ //
-            for (int i=0;i<nums.length-1;i++){
-                if (nums[i]>nums[i+1]){
+            for (int i=0;i<numsArray.length-1;i++){
+                if (numsArray[i]>numsArray[i+1]){
                     //Los valores cambian de posición
-                    int variableauxiliar=nums[i];
-                    nums[i]=nums[i+1];
-                    nums[i+1]=variableauxiliar;
+                    int variableauxiliar=numsArray[i];
+                    numsArray[i]=numsArray[i+1];
+                    numsArray[i+1]=variableauxiliar;
                     //se crea un contador con un cambio
                     cantIntercambios++;
                 }
@@ -155,6 +156,10 @@ public class NewJFrame extends javax.swing.JFrame {
             //Inicializamos la variable de nuevo para que empiece a contar de nuevo
             cantIntercambios=0;
         }
+       // String newArray;
+        //newArray = String.valueOf(numsArray);
+        
+        
         
         String n;
         n= numeroBuscar.getText();
@@ -162,8 +167,8 @@ public class NewJFrame extends javax.swing.JFrame {
         int numInt = 0;
         numInt = Integer.parseInt(n);
         
-        for(int i = 0; i < nums.length; i++) {
-          if(nums[i] == numInt ){  
+        for(int i = 0; i < numsArray.length; i++) {
+          if(numsArray[i] == numInt ){  
            pos=i; 
           }
             
@@ -171,12 +176,25 @@ public class NewJFrame extends javax.swing.JFrame {
         if(pos == -1){
         resul.setText("No se encontro el numero");
         }else{
-        resul.setText("la posicion de" + numeroBuscar + " es: " + pos );
+        resul.setText("la posicion de " + n + " es: " + pos );
         }
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private int[] valArray(String valores) {
+        StringTokenizer tokenizer = new StringTokenizer(valores, ",");
+        int newArray[] = new int[tokenizer.countTokens()];
+        int i = 0;
+
+        while (tokenizer.hasMoreTokens()) {
+            newArray[i++] = Integer.parseInt(tokenizer.nextToken());
+        }
+
+        return newArray;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -215,8 +233,8 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable myTable;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField numArreglo0;
     private javax.swing.JTextField numeroBuscar;
     private javax.swing.JTextField resul;
     // End of variables declaration//GEN-END:variables
